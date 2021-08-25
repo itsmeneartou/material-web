@@ -1,0 +1,25 @@
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@use '@material/tokens/resolvers';
+@use '@material/fab/fab-theme';
+@use '@material/mwc-ripple/ripple-theme';
+@use './fab-shared-theme';
+
+@mixin theme-styles($theme, $resolvers: resolvers.$material) {
+  @include fab-shared-theme.theme-styles(
+    $theme,
+    'fab-small',
+    $resolvers: $resolvers
+  );
+}
+
+///
+/// Applies the given theme as custom properties without any selectors.
+///
+@mixin theme($theme, $resolvers: resolvers.$material) {
+  @include fab-theme.theme($theme, $resolvers: $resolvers);
+}

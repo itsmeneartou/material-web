@@ -19,6 +19,7 @@
 @use '@material/fab/variables' as fab-variables;
 @use '@material/fab/fab-theme';
 @use '@material/mwc-ripple/ripple-theme';
+@use './fab-shared-theme';
 
 // TODO(b/153370936): replace with theme.resolve()
 $light-theme-deprecated: (
@@ -44,7 +45,6 @@ $light-theme-deprecated: (
   outline-color-focus: initial,
   outline-width-focus: initial,
 );
-
 @mixin theme-deprecated($theme: $light-theme-deprecated) {
   $container-color: map.get($theme, container-color);
   @if $container-color {
@@ -170,22 +170,7 @@ $light-theme-deprecated: (
 }
 
 @mixin theme-styles($theme, $resolvers: resolvers.$material) {
-  .mdc-fab {
-    @include fab-theme.theme-styles($theme, $resolvers);
-  }
-
-  $theme: keys.create-theme-properties($theme, $prefix: 'fab');
-
-  @include mdc-ripple-theme.theme(
-    (
-      hover-state-layer-color: map.get($theme, hover-state-layer-color),
-      focus-state-layer-color: map.get($theme, focus-state-layer-color),
-      pressed-state-layer-color: map.get($theme, pressed-state-layer-color),
-      hover-state-layer-opacity: map.get($theme, hover-state-layer-opacity),
-      focus-state-layer-opacity: map.get($theme, focus-state-layer-opacity),
-      pressed-state-layer-opacity: map.get($theme, pressed-state-layer-opacity),
-    )
-  );
+  @include fab-shared-theme.theme-styles($theme, 'fab', $resolvers: $resolvers);
 }
 
 ///
