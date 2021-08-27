@@ -36,6 +36,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Text direction follows CSS direction
 - `textfield`
   - Text direction follows CSS direction
+- `menu`
+  - Fixed noninteractive ignoring `--mdc-menu-item-height`
 
 ### Added
 
